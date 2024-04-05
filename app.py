@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from markupsafe import escape
 
 app = Flask(__name__)
@@ -6,12 +6,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "Hello World!"
+    return render_template("index.html")
 
 
 @app.route("/about")
 def about():
-    return "<h2>About this app...</h2>"
+    return render_template("about.html", company_name="EscalanTECH")
 
 
 @app.route("/stocks/")
